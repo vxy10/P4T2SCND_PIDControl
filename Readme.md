@@ -1,6 +1,8 @@
 
 ## PID control for self-driving car
 
+A better version with equations can be found [here](http://nbviewer.jupyter.org/github/vxy10/P4T2SCND_PIDControl/blob/master/Readme.ipynb)
+
 In this project, I implemented a PID (Proportional-Integral-Derivative) control for letting a car drive around a race track. PID control is a simple control scheme where the error between desired and true state is taken as input, and its value, integral and derivatives are multipled by scalars to compute the commanded control input. The proportional term drives the error to zero, however, this results in error oscillating about the set point. To supress these oscillations a derivative term is introduced. Finally, due to modeling errors, set point not being zero or other errors, a control based on proportional and derivative term alone can have a drift. To avoid this drift, an integral term is introduced. The integral term accumulates error, and pushes the control in the opposite direction of accumulated error. This results in the steady state offset error to go to zero. PID control was tested by controlling a car driving around in a Unity simulator. The car simulator was provided by Udacity. The simulator returned cross track error and took throttle opening and steering angle as control inputs. I implemented two modes of control, first a simple/safe mode where the car drives around the track without touching the yellow lines, and second a Fast mode where the car drives around the race track to achieve maximum speed. In simulation, I was able to acheive a maximum speed of 78 mph. This mode however resulted in the car touching edges of the road in some occasions. Below I present control sysnthesis for each mode. 
 
 ### Safe mode: 
